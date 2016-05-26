@@ -17,7 +17,7 @@
 			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss:SSS zzz}] - %-5p - [%c{1}.%M()] %m%n"/>
         </layout>
     </appender>
-    
+
     <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
         <param name="BufferSize" value="500"/>
         <param name="LocationInfo" value="true"/>
@@ -25,11 +25,11 @@
     </appender>
 
     <logger name="org">
-        <level value="error" />
+        <level value="ERROR" />
     </logger>
 
     <root>
-        <priority value="debug"/>
+        <priority value="DEBUG"/>
         <!-- CONSOLE, FILE, ASYNC -->
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
