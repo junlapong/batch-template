@@ -1,4 +1,7 @@
+# git ignore
+
 target/
+logs/
 
 # Eclipse files
 .classpath

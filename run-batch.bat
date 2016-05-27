@@ -26,7 +26,7 @@ SET CP=!CLASSPATH!
 ::echo CP    : %CP%
 
 :: ===========================================================================
-%JAVA_EXEC% -cp .\bin;%CP% com.company.app.MainApp 2016-05-26
+%JAVA_EXEC% -cp .\b;%CP% com.company.app.MainApp 2016-05-26
 :: ===========================================================================
 
 endlocal
