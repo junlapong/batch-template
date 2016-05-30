@@ -6,3 +6,7 @@ logs/
 # Eclipse files
 .classpath
 .project
+
+# IntelliJ files
+.idea/
+*.iml
