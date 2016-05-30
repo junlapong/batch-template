@@ -33,6 +33,7 @@
     <root level="DEBUG">
         <!-- CONSOLE, DAILYLOG, ASYNC -->
         <appender-ref ref="CONSOLE" />
+        <appender-ref ref="DAILYLOG" />
     </root>
 
 </configuration>
