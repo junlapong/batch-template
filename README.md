@@ -1,7 +1,8 @@
 # batch-template
 Java Batch Template
+[![Build Status](https://travis-ci.org/junlapong/batch-template.svg?branch=master)](https://travis-ci.org/junlapong/batch-template)
 
-## Create BUNDLE jar
+## Create bundle jar
 ```
 mvn package
 ```
@@ -16,9 +17,4 @@ run-batch.bat 2016-05-30
 [13:53:39.277 ICT] INFO  [main] com.company.app.module.ModuleService.sayHello() - Hello BAY
 [13:53:39.277 ICT] INFO  [main] com.company.app.MainApp.main() - [   BATCH END: Mon May 30 13:53:39 ICT 2016]
 EXIT CODE: 0
-```
-
-### Maven to Eclipse project
-```
-mvn eclipse:eclipse
 ```
