@@ -24,6 +24,18 @@
 		    <version>0.9.19</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.ldaptive</groupId>
+			<artifactId>ldaptive</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ldaptive</groupId>
+			<artifactId>ldaptive-json</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		
         <!-- Logger -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
