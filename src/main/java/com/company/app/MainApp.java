@@ -28,6 +28,13 @@ public class MainApp {
 
 	private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
 
+	public enum ExitCode {
+		NORMAL(0), ABNORMAL(-1);
+		private int value;
+		private ExitCode(int value) { this.value = value;}
+		public int toInt() { return value; }
+	}
+
 	static {
 		Locale.setDefault(Locale.ENGLISH);
 	}
@@ -41,7 +48,7 @@ public class MainApp {
 
 		logger.info("[ BATCH START: {}]", new Date());
 
-		int exitCode = -1;
+		int exitCode = ExitCode.ABNORMAL.toInt();
 
 		try {
 
@@ -54,7 +61,7 @@ public class MainApp {
 			ModuleService service = new ModuleService();
 			service.sayHello("BAY");
 			
-			exitCode = 0;
+			exitCode = ExitCode.NORMAL.toInt();
 
 		} catch (Exception e) {
 			logger.error("ERROR: ", e);
