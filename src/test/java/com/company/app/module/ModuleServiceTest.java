@@ -12,11 +12,13 @@ import java.io.*;
 import org.ldaptive.*;
 import org.ldaptive.io.JsonWriter;
 
+import com.fasterxml.jackson.databind.*;
+
 public class ModuleServiceTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(ModuleService.class);
 
-	@Test
+	@Ignore
 	public void shouldSayHello() {
 		new ModuleService().sayHello("Jun");
 	}
@@ -26,7 +28,7 @@ public class ModuleServiceTest {
 
 		LdifReader reader = new LdifReader();
 		List<LdifEntry> entries = reader.parseLdifFile("/path/to/entry.ldif");
-		String dn = "cn=Michael Owen,mail=xyz@mail.com";
+		String dn = "cn=users,cn=bayusers";
 
 		//iterate the entries
 		for (LdifEntry entry : entries) {
@@ -38,8 +40,8 @@ public class ModuleServiceTest {
 		}
 	}
 
-	@Ignore
-	public void shouldSearchLdiftoJson() throws Exception {
+	@Test
+	public void shouldConvertLdiftoJson() throws Exception {
 
 		// REF: http://www.ldaptive.org/docs/guide/formatting.html
 
@@ -53,8 +55,24 @@ public class ModuleServiceTest {
 		org.ldaptive.io.LdifReader ldifReader = new org.ldaptive.io.LdifReader(reader, SortBehavior.SORTED);
 		SearchResult result = ldifReader.read(); // data will be sorted accordingly
 
+/*
+		SearchOperation search = new SearchOperation(conn);
+		SearchResult result = search.execute(new SearchRequest("DC=BAY,DC=COM",
+			                                 new SearchFilter("(uid=worawee)"),
+			                                 new String[] {"mail"})).getResult();
+*/
+
 		jsonWriter.write(result);
-        logger.trace("{}", writer);
+        logger.trace("{}", beautify(writer.toString()));
 	}
-	
+
+	private String beautify(String json) throws IOException {
+	    ObjectMapper mapper = new ObjectMapper();
+	    Object obj = mapper.readValue(json, Object.class);
+	    return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
+
+	    // mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+	    // JsonNode tree = mapper.readTree(json);
+	    // return mapper.writeValueAsString(tree);
+	}	
 }
