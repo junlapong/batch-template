@@ -9,6 +9,8 @@ import java.util.*;
 import org.apache.directory.shared.ldap.ldif.*;
 
 import java.io.*;
+import java.nio.file.*;
+
 import org.ldaptive.*;
 import org.ldaptive.io.JsonWriter;
 
@@ -47,7 +49,7 @@ public class ModuleServiceTest {
 
 		// Sort behavior can also be controlled by setting a JVM System property:
 		// -Dorg.ldaptive.sortBehavior=ORDERED
-		
+
 		StringWriter writer = new StringWriter();
 		JsonWriter jsonWriter = new JsonWriter(writer);
 
@@ -63,7 +65,9 @@ public class ModuleServiceTest {
 */
 
 		jsonWriter.write(result);
-        logger.trace("{}", beautify(writer.toString()));
+		String jsonBeauty = beautify(writer.toString());
+		logger.trace("{}", jsonBeauty);
+		Files.write(Paths.get("/path/to/output.json"), jsonBeauty.getBytes());
 	}
 
 	private String beautify(String json) throws IOException {
@@ -74,5 +78,5 @@ public class ModuleServiceTest {
 	    // mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 	    // JsonNode tree = mapper.readTree(json);
 	    // return mapper.writeValueAsString(tree);
-	}	
+	}
 }
