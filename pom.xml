@@ -78,6 +78,24 @@
         </dependency>
  -->
 
+		<dependency>
+		    <groupId>ua_parser</groupId>
+		    <artifactId>ua-parser</artifactId>
+		    <version>1.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.uadetector</groupId>
+			<artifactId>uadetector-resources</artifactId>
+			<version>2014.04</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.mashape.unirest</groupId>
+		    <artifactId>unirest-java</artifactId>
+		    <version>1.4.9</version>
+		</dependency>
+
  		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -103,7 +121,7 @@
 	                </compilerArgs>
 	            </configuration>
 	        </plugin>
-	        <!--
+	        
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.6</version>
@@ -129,7 +147,29 @@
 					</execution>
 				</executions>
 			</plugin>
-			-->
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -153,7 +193,7 @@
 					</execution>
 				</executions>
 			</plugin>
-<!--
+
             <plugin>
                 <groupId>com.github.wvengen</groupId>
                 <artifactId>proguard-maven-plugin</artifactId>
@@ -183,8 +223,16 @@
                         <lib>${java.home}/lib/jce.jar</lib>
                     </libs>
                 </configuration>
-            </plugin> -->
+            </plugin>
 
 		</plugins>
 	</build>
+
+	<repositories>
+	    <repository>
+	        <id>twitter</id>
+	        <url>http://maven.twttr.com/</url>
+	    </repository>
+	</repositories>
+
 </project>

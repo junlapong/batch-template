@@ -20,7 +20,7 @@ public class ModuleServiceTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(ModuleService.class);
 
-	@Ignore
+	@Test
 	public void shouldSayHello() {
 		new ModuleService().sayHello("Jun");
 	}
@@ -42,7 +42,8 @@ public class ModuleServiceTest {
 		}
 	}
 
-	@Test
+	//@Test
+	@Ignore
 	public void shouldConvertLdiftoJson() throws Exception {
 
 		// REF: http://www.ldaptive.org/docs/guide/formatting.html
