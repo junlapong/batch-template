@@ -1,6 +1,5 @@
 # batch-template
-Java Batch Template
-[![Build Status](https://travis-ci.org/junlapong/batch-template.svg?branch=master)](https://travis-ci.org/junlapong/batch-template) [![CircleCI](https://circleci.com/gh/junlapong/batch-template.svg?style=shield)](https://circleci.com/gh/junlapong/batch-template)
+Java Batch Template [![CircleCI](https://circleci.com/gh/junlapong/batch-template.svg?style=shield)](https://circleci.com/gh/junlapong/batch-template)
 
 ## Create bundle jar
 ```
