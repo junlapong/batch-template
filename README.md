@@ -19,8 +19,36 @@ run-batch.bat 2016-05-30
 EXIT CODE: 0
 ```
 
-## Notes
+## User Agent Parser
 
 - https://www.uaparser.org
 - https://github.com/ua-parser/uap-java
+
+```xml
+<dependency>
+    <groupId>com.github.ua-parser</groupId>
+    <artifactId>uap-java</artifactId>
+    <version>1.4.3</version>
+</dependency>
+```
+
+```java
+import ua_parser.Client;
+import ua_parser.Parser;
+
+...
+
+Parser uaParser = new Parser();
+Client c = uaParser.parse(ua);
+
+logger.debug("UA: {}", ua);
+logger.debug("Device    : {}", c.device.family);    // => "iPhone"
+logger.debug("UA family : {}", c.userAgent.family); // => "Mobile Safari"
+logger.debug("UA major  : {}", c.userAgent.major);  // => "5"
+logger.debug("UA minor  : {}", c.userAgent.minor);  // => "1"
+logger.debug("OS family : {}", c.os.family);        // => "iOS"
+logger.debug("OS major  : {}", c.os.major);         // => "5"
+logger.debug("OS minor  : {}\n", c.os.minor);       // => "1"
+```
+
 - https://yauaa.basjes.nl
