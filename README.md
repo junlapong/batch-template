@@ -18,3 +18,9 @@ run-batch.bat 2016-05-30
 [13:53:39.277 ICT] INFO  [main] com.company.app.MainApp.main() - [   BATCH END: Mon May 30 13:53:39 ICT 2016]
 EXIT CODE: 0
 ```
+
+## Notes
+
+- https://www.uaparser.org
+- https://github.com/ua-parser/uap-java
+- https://yauaa.basjes.nl
