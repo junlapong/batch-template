@@ -1,6 +1,6 @@
 # Java Batch Template
 
-
+![Java](https://github.com/junlapong/batch-template/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 ## Create bundle jar
 ```
